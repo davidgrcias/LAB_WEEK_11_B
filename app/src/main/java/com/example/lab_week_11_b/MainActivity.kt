@@ -5,14 +5,11 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         providerFileManager =
             ProviderFileManager(
                 applicationContext,
-                Filehelper(applicationContext),
+                FileHelper(applicationContext),
                 contentResolver,
                 Executors.newSingleThreadExecutor(),
                 MediaContentHelper()

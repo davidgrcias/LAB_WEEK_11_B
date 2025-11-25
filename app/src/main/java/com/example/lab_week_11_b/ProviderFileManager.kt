@@ -11,7 +11,7 @@ import java.util.concurrent.Executor
 // Helper class to manage files in MediaStore
 class ProviderFileManager(
     private val context: Context,
-    private val fileHelper: Filehelper,
+    private val fileHelper: FileHelper,
     private val contentResolver: ContentResolver,
     private val executor: Executor,
     private val mediaContentHelper: MediaContentHelper

@@ -6,7 +6,7 @@ import android.os.Environment
 import androidx.core.content.FileProvider
 import java.io.File
 
-class Filehelper(private val context: Context) {
+class FileHelper(private val context: Context) {
     // Generate a URI to access the file
     // The URI will be temporary to limit access from other apps
     fun getUriFromFile(file: File): Uri {

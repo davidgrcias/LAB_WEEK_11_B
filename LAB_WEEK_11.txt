@@ -1,0 +1,23 @@
+1. When a user takes a picture, that picture is stored in a path based on the given URI. In which part of the code handles this?
+(Copy that part of the code as the
+answer)
+fun insertImageToStore(fileInfo: FileInfo?) {
+        fileInfo?.let {
+            insertToStore(
+                fileInfo,
+                mediaContentHelper.getImageContentUri(),
+                mediaContentHelper.generateImageContentValues(it)
+            )
+        }
+    }
+
+2. In your FileInfo.kt, there are 5 attributes. On the first attribute, what does the URI refer to? And on the fourth attribute, what does relativePath refer to?
+relativePath me-refer ke file asli, berisikan path direktori yang menampung foto yang telah didefinisikan dalam file_provider_paths.xml
+uri berisikan alamat gambar sementara sebelum pengambilan gambar, tujuannya adalah file uri ini nantinya akan diisikan data foto yang asli. File yang digenerate dengan URI
+juga memiliki akses yang terbatas dan sifatnya yang hanya sementara.
+
+3. [Bonus] Explain the chronological order from when a user takes a picture until the file is stored in the MediaStore.
+Saat user membuka kamera, program akan mengecek permission melalui fungsi checkStoragePermission(). Jika berhasil mendapat permission
+program akan membuat file foto sementara melalui openImageCapture() agar nantinya file ini bisa diisikan data foto yang asli.
+Setelah itu, program akan menjalankan kamera dan saat user mengambil foto, callback takePictureLauncher dipanggil dan kemudian file
+akan disimpan melalui providerManager.insertImageToStore(photoInfo). Setelah itu file pada perangkat dapat diakses
